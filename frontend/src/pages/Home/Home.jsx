@@ -13,7 +13,7 @@ const Home = () => {
     }
     return (
         <div className={styles.cardWrapper}>
-            <Card title="Welcome to VIBES!" icon="logo">
+            <Card title="👋 Welcome to VIBES!" icon="">
                 <p className={styles.text}>
                 Tap into the world's largest network where you can create or join voice rooms to chat with others and discover trending articles, all in one easy-to-use app.
                 </p>
