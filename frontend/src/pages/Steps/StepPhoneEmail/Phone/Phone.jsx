@@ -13,18 +13,28 @@ const Phone = ({ onNext }) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const dispatch = useDispatch();
 
-
+    const isValid = (phoneNumber) => {
+        const phoneRegex = /^[0-9]{10,12}$/; // validation check
+        return phoneRegex.test(phoneNumber);
+    }
 
     async function submit() {
 
-        if (!phoneNumber) return;
+        if (!phoneNumber) {
+            alert("Phone number is required");
+            return;
+        }
+        if (!isValid(phoneNumber)) {
+            alert("Please enter a valid phone number.");
+            return;
+        }
         const { data } = await sendOtp({ phone: phoneNumber });
         console.log(data);
         dispatch(setOtp({ phone: data.phone, hash: data.hash }));
         toast.info(`Your OTP is ${data.otp}`);
         onNext();
         alert(`Your OTP is: ${data.otp}`);
-       
+
     }
     return (
         <Card title="Enter you phone number" icon="phone">
@@ -34,7 +44,7 @@ const Phone = ({ onNext }) => {
             />
             <div>
                 <div className={styles.actionButtonWrap}>
-                    <Button text="Next" onClick={submit}/>
+                    <Button text="Next" onClick={submit} />
                 </div>
                 <p className={styles.bottomParagraph}>
                     By entering your number, you’re agreeing to our Terms of
