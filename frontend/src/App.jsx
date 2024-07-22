@@ -16,7 +16,7 @@ import Loader from './components/shared/Loader/Loader';
 function App() {
   const { loading } = useLoadingWithRefresh();
   return loading ? (
-    <Loader message="Loading, please wait.." />
+    <Loader message="Loading, Please wait..." />
     // 'loading'
   ) : (
 
@@ -27,57 +27,57 @@ function App() {
           <Route
             path="/"
             element={
-              // <GuestRoute>
+              <GuestRoute>
               <Home />
-              // </GuestRoute>
+              </GuestRoute>
             }
           />
           <Route
             path="/authenticate"
             element={
-              // <GuestRoute>
+              <GuestRoute>
               <Authenticate />
-              // </GuestRoute>
+              </GuestRoute>
             }
           />
           <Route
             path="/activate"
             element={
-              // <SemiProtectedRoute>
+              <SemiProtectedRoute>
               <Activate />
-              // </SemiProtectedRoute>
+              </SemiProtectedRoute>
             }
           />
           <Route
             path="/rooms"
             element={
-              // <ProtectedRoute>
+              <ProtectedRoute>
               <Rooms />
-              // </ProtectedRoute>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/article"
             element={
-              // <ProtectedRoute>
+              <ProtectedRoute>
               <ArticleList />
-              // </ProtectedRoute>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/article/:id"
             element={
-              // <ProtectedRoute>
+              <ProtectedRoute>
               <ArticleDetail />
-              // </ProtectedRoute>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/room/:id"
             element={
-              // <ProtectedRoute >
+              <ProtectedRoute >
               <Room />
-              // </ProtectedRoute>
+              </ProtectedRoute>
             }
           />
           <Route path="*" element={<Navigate to='/'/>}/>
