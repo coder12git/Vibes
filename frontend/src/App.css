@@ -1,0 +1,235 @@
+html {
+    font-size: 16px;
+}
+* {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+body {
+    background: #F8F8F8;
+    font-family: 'Nunito', sans-serif;
+    color: #28C1C1;
+}
+
+.container {
+    width: 1200px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.cardWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 140px);
+}
+
+/*_______________________________________________________ARTICLE________________________________________________________*/
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    --gradient_background: linear-gradient(135deg, #59fbd8 0%, #daf0eb 50%, #ffffff 100%);
+}
+
+.article--list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.197);
+    border-radius: 10px;
+    background-color: #F2F2F2;
+}
+
+.article--list--nav {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #9a38c1;
+    display: flex;
+    flex-direction: row;
+    gap: 20%;
+    justify-content: center;
+}
+
+.article--list--nav--search {
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.article--list--nav--btn {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 15px;
+    min-width: 150px;
+    border-radius: 10px;
+    padding: 10px;
+    color: #FFFFFF;
+    background: #9a38c1;
+    border-radius: 50px;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+.article--list--nav--btn:hover {
+    cursor: pointer;
+    background: #20BD5F;
+    color: black;
+}
+
+.article--card {
+    display: flex;
+    flex-direction: row;
+    gap: 20%;
+    /* background: #f1f1f1; */
+    background-image: linear-gradient(180deg, #ffffff 0%, #d4dfed 100%);
+
+    border-radius: 20px;
+    padding: 20px;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+}
+
+.article--card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    /* background: #f1c9ffa9; */
+    /* background: #69e99c; */
+}
+
+.article--card--title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    color: black;
+}
+
+.article--card--desc {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    color: #0B6B6B;
+    padding: 10px;
+    width: 50%;
+}
+
+.article--card--image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: inherit;
+    min-width: 200px;
+    max-width: 220px;
+    border-radius: 20px;
+}
+
+.article--detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #F2F2F2;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(180deg, #ffffff 0%, #d4dfed 100%);
+}
+
+.article--detail--title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.article--detail--content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    color: #333;
+}
+
+.article--detail--image {
+    min-height: 100px;
+    height: 450px;
+    min-width: 200px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.article--detail--text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+    padding: 0 20px;
+}
+
+@media only screen and (max-width: 900px) {
+    .article--detail--image {
+        max-height: 300px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .article--detail--title {
+        font-size: 28px;
+    }
+    .article--detail--text {
+        font-size: 16px;
+    }
+}
