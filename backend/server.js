@@ -22,6 +22,8 @@ app.use(cookieParser());
 const corsoption={
     credentials: true,
     origin: ['http://vibes-frontend-beta.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
 
 }
 
