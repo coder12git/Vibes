@@ -7,7 +7,7 @@ const socketInit = () => {
         timeout: 10000,
         transports: ['websocket'],
     };
-    return io('http://localhost:4000', options);
+    return io('https://vibes-backend-one.vercel.app', options);
 };
 
 export default socketInit;
