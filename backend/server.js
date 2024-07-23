@@ -30,7 +30,7 @@ app.use(cors(corsoption));
 const path = require('path')
 app.use('/storage', express.static(path.join(__dirname, 'storage')))
 
-const PORT = process.env.PORT || 4000;
+const PORT = 'https://vibes-backend-one.vercel.app';
 DbConnect();
 app.use(express.json({ limit: '8mb' }));
 app.use(router);

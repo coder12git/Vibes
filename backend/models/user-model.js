@@ -11,7 +11,7 @@ const userSchema = new Schema(
             required: false,
             get: (avatar) => {
                 if (avatar) {
-                    return `http://localhost:4000${avatar}`;
+                    return `https://vibes-backend-one.vercel.app${avatar}`;
                 }
                 return avatar;
             },
