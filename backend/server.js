@@ -11,7 +11,7 @@ const ACTIONS = require('./actions');
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: 'http://localhost:3000',
+        origin: 'http://vibes-frontend-beta.vercel.app',
         methods: ['GET', 'POST'],
     },
 });
@@ -21,7 +21,7 @@ const io = require('socket.io')(server, {
 app.use(cookieParser());
 const corsoption={
     credentials: true,
-    origin: ['http://localhost:3000'],
+    origin: ['http://vibes-frontend-beta.vercel.app'],
 
 }
 
@@ -30,7 +30,7 @@ app.use(cors(corsoption));
 const path = require('path')
 app.use('/storage', express.static(path.join(__dirname, 'storage')))
 
-const PORT = 'https://vibes-backend-one.vercel.app';
+const PORT = process.env.PORT || 4000;
 DbConnect();
 app.use(express.json({ limit: '8mb' }));
 app.use(router);
