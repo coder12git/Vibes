@@ -3,6 +3,7 @@ import styles from './AddRoomModal.module.css';
 import TextInput from '../shared/TextInput/TextInput';
 import { createRoom as create } from '../../http';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AddRoomModal = ({ onClose }) => {
     const Navigate = useNavigate();
@@ -14,6 +15,7 @@ const AddRoomModal = ({ onClose }) => {
         try {
             if (!topic) return;
             const { data } = await create({ topic, roomType });
+            toast.success("Room successfully created!")
             Navigate(`/room/${data.id}`);
         } catch (err) {
             console.log(err.message);

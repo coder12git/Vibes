@@ -21,19 +21,18 @@ const Phone = ({ onNext }) => {
     async function submit() {
 
         if (!phoneNumber) {
-            alert("Phone number is required");
+            toast.error("Phone number is required");
             return;
         }
         if (!isValid(phoneNumber)) {
-            alert("Please enter a valid phone number.");
+            toast.error("Please enter a valid phone number.");
             return;
         }
         const { data } = await sendOtp({ phone: phoneNumber });
-        console.log(data);
+        // console.log(data);
         dispatch(setOtp({ phone: data.phone, hash: data.hash }));
         toast.info(`Your OTP is ${data.otp}`);
         onNext();
-        alert(`Your OTP is: ${data.otp}`);
 
     }
     return (

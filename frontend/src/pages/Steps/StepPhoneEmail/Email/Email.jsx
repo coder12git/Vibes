@@ -8,6 +8,7 @@ import { setOtp } from '../../../../store/authSlice';
 import { useDispatch } from 'react-redux';
 import { toast } from "react-toastify";
 
+
 const Email = ({ onNext }) => {
     const [email, setEmail] = useState('');
     const dispatch = useDispatch();
@@ -20,19 +21,18 @@ const Email = ({ onNext }) => {
     async function submit() {
 
         if (!email) {
-            alert("Email is required");
+            toast.error("Email is required");
             return;
         }
         if (!isValidEmail(email)) {
-            alert("Please enter a valid email address");
+            toast.error("Please enter a valid email address");
             return;
         }
         const { data } = await sendOtp({ phone: email });
-        console.log(data);
+        // console.log(data);
         dispatch(setOtp({ phone: data.phone, hash: data.hash }));
         toast.info(`Your OTP is ${data.otp}`);
         onNext();
-        alert(`Your OTP is: ${data.otp}`);
        
     }
     return (

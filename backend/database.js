@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const DB_URL='mongodb+srv://ruchi:Kumari123@cluster0.kdsaye1.mongodb.net/sympathy';
+const DB_URL=process.env.DB_URL;
 
 
 function DbConnect() {
