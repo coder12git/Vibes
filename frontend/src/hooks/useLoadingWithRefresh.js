@@ -9,7 +9,7 @@ export function useLoadingWithRefresh() {
         (async () => {
             try {
                 const { data } = await axios.get(
-                    'https://vibes-backend-one.vercel.app/api/refresh',
+                    'https://vibes-backend.onrender.com/api/refresh',
                     {
                         withCredentials: true,
                     }

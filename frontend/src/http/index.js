@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://vibes-backend-one.vercel.app',
+    baseURL: 'https://vibes-backend.onrender.com',
     withCredentials: true,
     headers: {
         'Content-type': 'application/json',
@@ -33,7 +33,7 @@ api.interceptors.response.use(
             originalRequest.isRetry = true;
             try {
                 await axios.get(
-                    'https://vibes-backend-one.vercel.app/api/refresh',
+                    'https://vibes-backend.onrender.com/api/refresh',
                     {
                         withCredentials: true,
                     }
