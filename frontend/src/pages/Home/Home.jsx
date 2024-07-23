@@ -2,29 +2,33 @@ import React from 'react'
 import styles from './Home.module.css';
 import Card from '../../components/shared/Card/Card';
 import Button from '../../components/shared/Button/Button';
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 const Home = () => {
-
     const navigate = useNavigate();
-    function startRegister(){
+
+    function startRegister() {
+        toast("👋 Welcome to VIBES!");
         navigate('/authenticate');
-        
+
     }
+
+
     return (
         <div className={styles.cardWrapper}>
             <Card title="👋 Welcome to VIBES!" icon="">
                 <p className={styles.text}>
-                Tap into the world's largest network where you can create or join voice rooms to chat with others and discover trending articles, all in one easy-to-use app.
+                    Tap into the world's largest network where you can create or join voice rooms to chat with others and discover trending articles, all in one easy-to-use app.
                 </p>
                 <div>
-                <Button onClick={startRegister} text="Let's Go" />
+                    <Button onClick={startRegister} text="Let's Go" />
                 </div>
                 <div className={styles.signinWrapper}>
                     <span className={styles.hasInvite}>
                         Have an invite text?
                     </span>
-                    
+
                 </div>
             </Card>
         </div>
