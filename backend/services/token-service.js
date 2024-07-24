@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
-const accessTokenSecret = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJleGFtcGxlVXNlcklkIiwidXNlcm5hbWUiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MjE1MTQwOTgsImV4cCI6MTcyMTUxNDk5OH0.57OyulvoGMGrTent9Y5jPNYB3l-HXPyYtpc0Pp8KJAY';
-const refreshTokenSecret = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJleGFtcGxlVXNlcklkIiwidXNlcm5hbWUiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MjE1MTQwOTgsImV4cCI6MTc1MzA3MTY5OH0.hLOmeqsJGd4UZVwaPzp4IzfIrQItisDKTKahjFWgjR4'
+const accessTokenSecret = '';
+const refreshTokenSecret = ''
 const refreshModel = require('../models/refresh-model');
 class TokenService {
     generateTokens(payload) {
