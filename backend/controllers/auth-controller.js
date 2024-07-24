@@ -76,11 +76,13 @@ class AuthController{
         res.cookie('refreshToken', refreshToken, {
             maxAge: 1000 * 60 * 60 * 24 * 30,
             httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
         });
 
         res.cookie('accessToken', accessToken, {
             maxAge: 1000 * 60 * 60 * 24 * 30,
             httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
         });
 
         const userDto = new UserDto(user);
@@ -132,11 +134,13 @@ class AuthController{
         res.cookie('refreshToken', refreshToken, {
             maxAge: 1000 * 60 * 60 * 24 * 30,
             httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
         });
 
         res.cookie('accessToken', accessToken, {
             maxAge: 1000 * 60 * 60 * 24 * 30,
             httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
         });
         // response
         const userDto = new UserDto(user);
