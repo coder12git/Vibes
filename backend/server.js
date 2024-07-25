@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const DbConnect = require('./database');
-const router =require('./routes');
+const router = require('./routes');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const server = require('http').createServer(app);
@@ -11,7 +11,8 @@ const ACTIONS = require('./actions');
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: 'https://vibes-frontend-beta.vercel.app',
+        origin: process.env.NODE_ENV === 'development' ? 'http://localhost:3000' :
+            'https://vibes-frontend-beta.vercel.app',
         methods: ['GET', 'POST'],
     },
 });
@@ -19,9 +20,10 @@ const io = require('socket.io')(server, {
 
 
 app.use(cookieParser());
-const corsoption={
+const corsoption = {
     credentials: true,
-    origin: ['https://vibes-frontend-beta.vercel.app'],
+    origin: [process.env.NODE_ENV === 'development' ? 'http://localhost:3000' :
+        'https://vibes-frontend-beta.vercel.app'],
 
 }
 
@@ -37,12 +39,12 @@ app.use(router);
 
 
 
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
     res.send('Hello')
 });
 const socketUserMap = {};
 io.on('connection', (socket) => {
-    console.log('newcon',socket.id)
+    console.log('newcon', socket.id)
     // console.log('New connection', socket.id);
     socket.on(ACTIONS.JOIN, ({ roomId, user }) => {
         socketUserMap[socket.id] = user;

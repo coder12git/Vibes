@@ -1,7 +1,11 @@
 import axios from 'axios';
 
+const url = process.env.NODE_ENV === 'development' ? 'http://localhost:4000/api/refresh' :
+    'https://vibes-backend.onrender.com/api/refresh';
+
 const api = axios.create({
-    baseURL: 'https://vibes-backend.onrender.com',
+    baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:4000' :
+        'https://vibes-backend.onrender.com',
     withCredentials: true,
     headers: {
         'Content-type': 'application/json',
@@ -33,7 +37,7 @@ api.interceptors.response.use(
             originalRequest.isRetry = true;
             try {
                 await axios.get(
-                    'https://vibes-backend.onrender.com/api/refresh',
+                    url,
                     {
                         withCredentials: true,
                     }

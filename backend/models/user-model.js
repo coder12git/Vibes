@@ -11,7 +11,8 @@ const userSchema = new Schema(
             required: false,
             get: (avatar) => {
                 if (avatar) {
-                    return `https://vibes-backend.onrender.com${avatar}`;
+                    return process.env.NODE_ENV === 'development' ? `http://localhost:4000${avatar}` :
+                    `https://vibes-backend.onrender.com${avatar}`;
                 }
                 return avatar;
             },
