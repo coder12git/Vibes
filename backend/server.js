@@ -11,7 +11,7 @@ const ACTIONS = require('./actions');
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: 'https://vibes-frontend-beta.vercel.app/',
+        origin: 'https://vibes-frontend-beta.vercel.app',
         methods: ['GET', 'POST'],
     },
 });
@@ -21,7 +21,7 @@ const io = require('socket.io')(server, {
 app.use(cookieParser());
 const corsoption={
     credentials: true,
-    origin: ['https://vibes-frontend-beta.vercel.app/'],
+    origin: ['https://vibes-frontend-beta.vercel.app'],
 
 }
 

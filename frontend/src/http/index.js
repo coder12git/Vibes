@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://vibes-backend.onrender.com/',
+    baseURL: 'https://vibes-backend.onrender.com',
     withCredentials: true,
     headers: {
         'Content-type': 'application/json',

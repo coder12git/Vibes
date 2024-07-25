@@ -25,12 +25,12 @@ class TokenService {
     }
 
     async verifyAccessToken(token) {
-        // console.log("Access: ",token===accessTokenSecret);
+        console.log("Access: ",token===accessTokenSecret);
         return jwt.verify(token, accessTokenSecret);
     }
 
     async verifyRefreshToken(refreshToken) {
-        // console.log("Refresh: ",refreshToken===refreshTokenSecret)
+        console.log("Refresh: ",refreshToken===refreshTokenSecret)
         return jwt.verify(refreshToken, refreshTokenSecret);
     }
 
