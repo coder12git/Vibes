@@ -1,14 +1,14 @@
 const jwt = require('jsonwebtoken');
-const accessTokenSecret = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJleGFtcGxlVXNlcklkIiwidXNlcm5hbWUiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MjE1MTQwOTgsImV4cCI6MTcyMTUxNDk5OH0.57OyulvoGMGrTent9Y5jPNYB3l-HXPyYtpc0Pp8KJAY';
-const refreshTokenSecret = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJleGFtcGxlVXNlcklkIiwidXNlcm5hbWUiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MjE1MTQwOTgsImV4cCI6MTc1MzA3MTY5OH0.hLOmeqsJGd4UZVwaPzp4IzfIrQItisDKTKahjFWgjR4'
+const accessTokenSecret = '13c352a6f2b6c7c95a8d9d17ef03d58a8f4b6ca5c0695b61c1423648204322b8a2b4e0e91b05ff12e8ebafed1363bdbf40174e45429e1a66248ecd651aff7d7f';
+const refreshTokenSecret = 'd6274342d1b80a281a9d8ab178839b4504cdde6d26d3724bf398b091ee570b4f66069ecf2ed66c47a1de3d1882cc3bff8af4213af8493eaef28d0eecbe0f3125';
 const refreshModel = require('../models/refresh-model');
 class TokenService {
     generateTokens(payload) {
         const accessToken = jwt.sign(payload, accessTokenSecret, {
-            expiresIn: '15m',
+            expiresIn: '30d',
         });
         const refreshToken = jwt.sign(payload, refreshTokenSecret, {
-            expiresIn: '1y',
+            expiresIn: '30d',
         });
         return { accessToken, refreshToken };
     }
@@ -25,12 +25,23 @@ class TokenService {
     }
 
     async verifyAccessToken(token) {
-        console.log("Access: ",token===accessTokenSecret);
-        return jwt.verify(token, accessTokenSecret);
+        try {
+            const decoded = jwt.verify(token, accessTokenSecret);
+            return decoded;
+        } catch (err) {
+            console.log(err);
+            return null;
+        }
     }
 
     async verifyRefreshToken(refreshToken) {
-        console.log("Refresh: ",refreshToken===refreshTokenSecret)
+        // // console.log("Refresh: ",refreshToken===refreshTokenSecret)
+        // try{
+        //   return jwt.verify(refreshToken, refreshTokenSecret);
+        // } catch(err){
+        //     console.log(err);
+        //     return null;
+        // }
         return jwt.verify(refreshToken, refreshTokenSecret);
     }
 
