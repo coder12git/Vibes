@@ -75,13 +75,13 @@ class AuthController{
 
         res.cookie('refreshToken', refreshToken, {
             maxAge: 1000 * 60 * 60 * 24 * 30, //30 days
-            // httpOnly: true,
+            httpOnly: true,
             // secure: process.env.NODE_ENV === 'production',
         });
 
         res.cookie('accessToken', accessToken, {
             maxAge: 1000 * 60 * 60 * 24 * 30,
-            // httpOnly: true,
+            httpOnly: true,
             // secure: process.env.NODE_ENV === 'production',
         });
 
@@ -100,7 +100,7 @@ class AuthController{
                 refreshTokenFromCookie
             );
         } catch (err) {
-            return res.status(401).json({ message: 'Invalid Token' });
+            return res.status(401).json({ message: 'Invalid Token from verify' });
         }
         // Check if token is in db
         try {
@@ -109,10 +109,10 @@ class AuthController{
                 refreshTokenFromCookie
             );
             if (!token) {
-                return res.status(401).json({ message: 'Invalid token' });
+                return res.status(401).json({ message: 'Invalid token from db refresh' });
             }
         } catch (err) {
-            return res.status(500).json({ message: 'Internal error' });
+            return res.status(500).json({ message: 'Internal error from db' });
         }
         // check if valid user
         const user = await userService.findUser({ _id: userData._id });
@@ -128,18 +128,18 @@ class AuthController{
         try {
             await tokenService.updateRefreshToken(userData._id, refreshToken);
         } catch (err) {
-            return res.status(500).json({ message: 'Internal error' });
+            return res.status(500).json({ message: 'Internal error during update' });
         }
         // put in cookie
         res.cookie('refreshToken', refreshToken, {
             maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
-            // httpOnly: true,
+            httpOnly: true,
             // secure: process.env.NODE_ENV === 'production',
         });
 
         res.cookie('accessToken', accessToken, {
             maxAge: 1000 * 60 * 60 * 24 * 30,
-            // httpOnly: true,
+            httpOnly: true,
             // secure: process.env.NODE_ENV === 'production',
         });
         // response
