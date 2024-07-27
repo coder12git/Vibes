@@ -41,6 +41,7 @@ const Email = ({ onNext }) => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
+                placeholder="E.g. - 123@mail.com"
             />
             <div>
                 <div className={styles.actionButtonWrap}>

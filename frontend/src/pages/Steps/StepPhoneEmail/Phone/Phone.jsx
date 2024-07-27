@@ -40,6 +40,7 @@ const Phone = ({ onNext }) => {
             <TextInput
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
+                placeholder="E.g. - 1234567890"
             />
             <div>
                 <div className={styles.actionButtonWrap}>

@@ -7,6 +7,7 @@ import { setAvatar } from '../../../store/activateSlice';
 import { activate } from '../../../http';
 import { setAuth } from '../../../store/authSlice';
 import Loader from '../../../components/shared/Loader/Loader';
+import { toast } from 'react-toastify';
 
 const StepAvatar = ({ onNext }) => {
     const dispatch = useDispatch();
@@ -25,7 +26,10 @@ const StepAvatar = ({ onNext }) => {
         };
     }
     async function submit() {
-        if (!name || !avatar) return;
+        if (!name || !avatar) {
+            toast.info("Please upload an image to proceed!!");
+            return;
+        }
         setLoading(true);
         try {
             const { data } = await activate({ name, avatar });
