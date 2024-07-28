@@ -12,6 +12,10 @@
 A full stack web application where users can create and join rooms to discuss any topics, engage in discussions, and can read trending articles, all without disclosing their real identity.
 
 Watch Demo Video - <a href='https://youtu.be/P-IykV3HPWg?si=4EqMGDynZ-RFg30I'>Click here</a>
+
+Visit our live site at - http://vibes-frontend-beta.vercel.app/
+
+Visit our live backend server at - https://vibes-backend.onrender.com/
    
 </div>
 
@@ -49,6 +53,8 @@ Vibes is a full-stack web application built with the *MERN* stack. Users can cre
 - Express and Node.JS - For building the backend of our web application
 - MongoDB - For Database
 - WebRTC and Socket.IO - Integrated to enable real-time voice room features, allowing seamless communication between the (backend) server and the (frontend) client.
+- Vercel - For deploying frontend
+- Render - For deploying backend server
 
 <div align='center'>
 
