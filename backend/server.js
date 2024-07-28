@@ -40,7 +40,7 @@ app.use(router);
 
 
 app.get('/', (req, res) => {
-    res.send('Hello')
+    res.send('<h3>Welcome to our Vibes server, please visit our site at - http://vibes-frontend-beta.vercel.app/</h3>')
 });
 const socketUserMap = {};
 io.on('connection', (socket) => {
